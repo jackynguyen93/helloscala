@@ -38,6 +38,8 @@
         <scala.version>2.11.2</scala.version>
         <org.springframework.version>4.0.6.RELEASE</org.springframework.version>
         <slf4j.version>1.7.7</slf4j.version>
+        <postgresql.version>9.3-1100-jdbc41</postgresql.version>
+        <springjdbc.version>4.0.0.RELEASE</springjdbc.version>
     </properties>
 
     <dependencies>
@@ -147,13 +149,22 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.6.Final</version>
-            <scope>compile</scope>
+            <version>4.3.8.Final</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.8.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
@@ -196,6 +207,19 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <!-- Connect PostgreSQL Database -->
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${springjdbc.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

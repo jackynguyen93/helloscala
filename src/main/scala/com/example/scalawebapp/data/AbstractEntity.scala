@@ -12,12 +12,18 @@
 
 package com.example.scalawebapp.data
 
-import javax.persistence.{ MappedSuperclass, GeneratedValue, Id }
+import javax.persistence._
 
 @MappedSuperclass
 abstract class AbstractEntity {
   @Id
-  @GeneratedValue
+  @Column(name = "id", nullable = false, unique = true)
+  @GeneratedValue(strategy=GenerationType.TABLE , generator="id_generator")
+  @TableGenerator(name="id_generator",
+    table="pk_table",
+    pkColumnName="name",
+    valueColumnName="value",
+    allocationSize=1000)
   var id: Long = 0
 
   def getId: Long = id

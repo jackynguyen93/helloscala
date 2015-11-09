@@ -13,11 +13,13 @@
 package com.example.scalawebapp.data
 
 import beans.BeanProperty
-import javax.persistence.Entity
+import javax.persistence.{Table, Column, Entity}
 
 @Entity
+@Table (name = "Customer")
 class Customer extends AbstractEntity {
   @BeanProperty
+  @Column (name = "name")
   var name: String = null
   
   override def toString = "[Customer: id = " + id + ", name = " + name + "]"
