@@ -14,16 +14,14 @@ package com.example.scalawebapp.data
 
 import javax.persistence._
 
+import org.hibernate.annotations.GenericGenerator
+
 @MappedSuperclass
 abstract class AbstractEntity {
   @Id
   @Column(name = "id", nullable = false, unique = true)
-  @GeneratedValue(strategy=GenerationType.TABLE , generator="id_generator")
-  @TableGenerator(name="id_generator",
-    table="pk_table",
-    pkColumnName="name",
-    valueColumnName="value",
-    allocationSize=1000)
+  @GenericGenerator(name="idGenerator" , strategy="increment")
+  @GeneratedValue(generator="idGenerator")
   var id: Long = 0
 
   def getId: Long = id

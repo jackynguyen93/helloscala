@@ -101,7 +101,7 @@ class CustomerPageData {
 
   def copyTo(customer: Customer): Unit = {
     // TODO: Use Dozer to do this automatically
-    customer.name = name
+    customer.setName(name)
   }
 
   def copyFrom(customer: Customer): Unit = {
